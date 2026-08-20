@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#191B20" />
+  <title>Cravings! · Empleados</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="shell narrow">
+    <header class="brandbar">
+      <a class="brand" href="./">
+        <span class="logo-wrap"><img src="assets/logo-cravings.jpeg" alt="Cravings!" /></span>
+        <span><span class="brand-name">Cravings!</span><span class="brand-sub">Caja · Empleados</span></span>
+      </a>
+      <div class="navlinks"><a href="./">Cliente</a><a href="admin.html">Admin</a></div>
+    </header>
+
+    <section id="setupNotice" class="notice info hidden">Falta configurar Supabase en <strong>js/config.js</strong>.</section>
+
+    <section id="staffLogin" class="card">
+      <div class="eyebrow">Acceso de personal</div>
+      <h1 style="font-size:2.3rem">Registrar compra</h1>
+      <p class="muted">Inicia sesión con una cuenta marcada como empleado o administrador.</p>
+      <div id="staffMessage"></div>
+      <form id="staffLoginForm" class="form-grid">
+        <label>Correo<input id="staffEmail" type="email" required autocomplete="email" /></label>
+        <label>Contraseña<input id="staffPassword" type="password" required autocomplete="current-password" /></label>
+        <button class="btn btn-dark btn-block" type="submit">Entrar a caja</button>
+      </form>
+    </section>
+
+    <section id="staffApp" class="hidden">
+      <div class="card">
+        <div class="toolbar">
+          <div><div class="eyebrow">Caja Cravings!</div><h2 style="margin-bottom:0">Escanear tarjeta</h2></div>
+          <button id="staffLogout" class="btn btn-ghost" type="button">Salir</button>
+        </div>
+        <p class="muted">Usa la cámara del celular para leer el QR del cliente.</p>
+        <button id="startScanner" class="btn btn-primary btn-block" type="button">📷 Abrir cámara</button>
+        <div id="readerWrap" class="scan-shell hidden" style="margin-top:14px"><div id="reader"></div></div>
+      </div>
+
+      <div id="lookupMessage"></div>
+      <div id="customerResult" class="customer-result hidden">
+        <div class="result-head">
+          <div><div class="eyebrow">Cliente</div><h2 id="resultName">—</h2></div>
+          <span id="rewardPill" class="pill green hidden">Premio disponible</span>
+        </div>
+        <p><strong id="resultProgress">0/7</strong> compras en el ciclo actual · <span id="resultRewards">0</span> premio(s) disponible(s)</p>
+        <div class="form-grid">
+          <label>Importe de esta compra (MXN)
+            <input id="purchaseAmount" type="number" min="50" step="0.01" inputmode="decimal" placeholder="50.00" />
+          </label>
+          <button id="registerPurchase" class="btn btn-primary btn-block" type="button">+ Registrar compra</button>
+          <button id="redeemReward" class="btn btn-dark btn-block hidden" type="button">☕ Canjear bebida gratis</button>
+          <button id="scanAnother" class="btn btn-ghost btn-block" type="button">Escanear otra tarjeta</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>Cravings! · Uso exclusivo de personal autorizado</footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/employee.js"></script>
+</body>
+</html>

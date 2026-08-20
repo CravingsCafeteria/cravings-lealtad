@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F57E2F" />
+  <title>Mi Tarjeta Cravings!</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="shell narrow">
+    <header class="brandbar">
+      <a class="brand" href="./">
+        <span class="logo-wrap"><img src="assets/logo-cravings.jpeg" alt="Cravings!" /></span>
+        <span><span class="brand-name">Cravings!</span><span class="brand-sub">Tarjeta de lealtad</span></span>
+      </a>
+      <button id="logoutBtn" class="btn btn-ghost hidden" type="button">Salir</button>
+    </header>
+
+    <section id="setupNotice" class="notice info hidden">
+      El sitio ya está listo, pero falta conectarlo a Supabase. Abre <strong>js/config.js</strong> y pega tu Project URL y tu Publishable key.
+    </section>
+
+    <section id="authView">
+      <div class="card hero">
+        <div class="eyebrow">Club Cravings!</div>
+        <h1>7 compras.<br>1 bebida gratis.</h1>
+        <p class="lead">Regístrate una vez y lleva tu tarjeta siempre en el celular. Cada compra mínima de $50 MXN suma un sello.</p>
+      </div>
+
+      <div class="card">
+        <div class="tabs">
+          <button class="tab active" data-tab="register" type="button">Crear tarjeta</button>
+          <button class="tab" data-tab="login" type="button">Ya tengo cuenta</button>
+        </div>
+
+        <div id="authMessage"></div>
+
+        <form id="registerForm" class="form-grid">
+          <label>Tu nombre
+            <input id="registerName" autocomplete="name" required maxlength="80" placeholder="Ej. Sofía Martínez" />
+          </label>
+          <label>Correo electrónico
+            <input id="registerEmail" type="email" autocomplete="email" required placeholder="tu@correo.com" />
+          </label>
+          <label>Contraseña
+            <input id="registerPassword" type="password" autocomplete="new-password" required minlength="6" placeholder="Mínimo 6 caracteres" />
+          </label>
+          <button class="btn btn-primary btn-block" type="submit">Crear mi Tarjeta Cravings!</button>
+          <p class="muted small center">No se registran compras desde esta pantalla. Sólo el personal de Cravings! puede sumar sellos.</p>
+        </form>
+
+        <form id="loginForm" class="form-grid hidden">
+          <label>Correo electrónico
+            <input id="loginEmail" type="email" autocomplete="email" required />
+          </label>
+          <label>Contraseña
+            <input id="loginPassword" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="btn btn-dark btn-block" type="submit">Abrir mi tarjeta</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="cardView" class="hidden">
+      <div class="loyalty-card">
+        <div class="loyalty-top">
+          <div>
+            <div class="loyalty-title">Mi Tarjeta Cravings!</div>
+            <div id="customerName" class="loyalty-name">—</div>
+          </div>
+          <div class="mini-logo"><img src="assets/logo-cravings.jpeg" alt="" /></div>
+        </div>
+        <div id="stamps" class="stamps" aria-label="Progreso de 7 compras"></div>
+        <div class="progress-copy">
+          <span id="progressText">0 de 7 compras</span>
+          <span>mín. $50</span>
+        </div>
+        <div id="rewardBanner" class="reward-banner hidden">🎉 ¡Tienes una bebida gratis disponible!</div>
+      </div>
+
+      <div class="card qr-panel">
+        <div>
+          <h2 class="center">Presenta tu tarjeta al pagar</h2>
+          <p class="muted center">El empleado escaneará este código para sumar tu compra.</p>
+        </div>
+        <div id="customerQr" class="qr-box"></div>
+        <div id="publicCode" class="qr-code-text"></div>
+        <button id="refreshCardBtn" class="btn btn-soft" type="button">Actualizar progreso</button>
+      </div>
+
+      <div class="card">
+        <h2>Movimientos recientes</h2>
+        <ul id="historyList" class="history"><li class="muted">Aún no hay movimientos.</li></ul>
+      </div>
+    </section>
+
+    <footer>Cravings! · Programa de lealtad</footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

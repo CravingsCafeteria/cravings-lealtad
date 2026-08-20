@@ -1,0 +1,15 @@
+ANTES DE PUBLICAR:
+
+1. Crear proyecto gratuito en Supabase.
+2. Ejecutar supabase/setup.sql.
+3. Editar js/config.js con:
+   - Project URL
+   - Publishable key
+4. Subir la carpeta a GitHub.
+5. Activar GitHub Pages.
+6. Registrarte y convertir tu cuenta en admin siguiendo GUIA_PRIMERA_VEZ.md.
+
+NO PEGAR NUNCA:
+- Secret key
+- service_role
+- contraseña de la base de datos
