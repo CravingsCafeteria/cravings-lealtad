@@ -36,10 +36,21 @@ a { color: inherit; }
 .brandbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 900; }
 .logo-wrap {
-  width: 58px; height: 58px; border-radius: 50%; overflow: hidden; flex: 0 0 auto;
-  background: var(--brand-orange); box-shadow: 0 6px 18px rgba(245,126,47,.25);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: 0 0 auto;
+  background: transparent;
+  box-shadow: 0 6px 18px rgba(245,126,47,.18);
 }
-.logo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 54%; transform: scale(1.72); }
+.logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
 .brand-name { font-size: 1.18rem; letter-spacing: -.03em; }
 .brand-sub { display:block; font-size: .74rem; color: var(--brand-muted); font-weight: 700; letter-spacing: .02em; }
 
@@ -92,7 +103,13 @@ input:focus { border-color: var(--brand-orange); box-shadow: 0 0 0 4px rgba(245,
 .loyalty-title { font-size:1.5rem; font-weight:1000; letter-spacing:-.04em; }
 .loyalty-name { opacity:.92; margin-top:4px; font-weight:700; }
 .mini-logo { width:46px; height:46px; border-radius:50%; overflow:hidden; background:#fff; border:2px solid rgba(255,255,255,.7); }
-.mini-logo img { width:100%; height:100%; object-fit:cover; object-position:center 54%; transform:scale(1.72); }
+.mini-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
 .stamps { display:grid; grid-template-columns: repeat(7, 1fr); gap:8px; margin:26px 0 12px; position:relative; z-index:1; }
 .stamp { aspect-ratio:1; border-radius:50%; display:grid; place-items:center; font-weight:1000; border:2px solid rgba(255,255,255,.72); background:rgba(255,255,255,.12); font-size:1.05rem; }
 .stamp.filled { background:#fff; color:var(--brand-orange-deep); box-shadow:0 5px 14px rgba(110,45,6,.18); }
