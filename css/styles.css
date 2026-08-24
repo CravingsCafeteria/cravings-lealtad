@@ -140,6 +140,7 @@ input:focus { border-color: var(--brand-orange); box-shadow: 0 0 0 4px rgba(245,
 .toolbar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
 .navlinks { display:flex; gap:8px; flex-wrap:wrap; }
 .navlinks a { padding:9px 12px; border:1px solid var(--brand-line); background:#fff; border-radius:12px; text-decoration:none; font-size:.82rem; font-weight:850; }
+
 .terms-note {
   margin: 20px auto 0;
   padding: 14px 18px 0;
