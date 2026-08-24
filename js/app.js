@@ -143,6 +143,40 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   if (error) showMessage('No pudimos entrar. Revisa correo y contraseña.', 'error');
 });
 
+document.getElementById('forgotPasswordBtn').addEventListener('click', async () => {
+  if (!db) return;
+
+  const email = document.getElementById('loginEmail').value.trim();
+
+  if (!email) {
+    showMessage(
+      'Escribe primero el correo electrónico con el que registraste tu tarjeta.',
+      'error'
+    );
+    return;
+  }
+
+  showMessage('Enviando enlace de recuperación…', 'info');
+
+  const { error } = await db.auth.resetPasswordForEmail(email, {
+    redirectTo: 'https://cravingscafeteria.github.io/cravings-lealtad/reset-password.html'
+  });
+
+  if (error) {
+    console.error(error);
+    showMessage(
+      'No pudimos enviar el correo de recuperación. Intenta nuevamente.',
+      'error'
+    );
+    return;
+  }
+
+  showMessage(
+    'Te enviamos un enlace para cambiar tu contraseña. Revisa tu correo y también la carpeta de spam.',
+    'success'
+  );
+});
+
 logoutBtn.addEventListener('click', async () => db && db.auth.signOut());
 document.getElementById('refreshCardBtn').addEventListener('click', loadCard);
 window.addEventListener('focus', () => currentUser && loadCard());
