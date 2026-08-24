@@ -72,5 +72,13 @@
   <script src="js/config.js"></script>
   <script src="js/supabase-client.js"></script>
   <script src="js/employee.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .catch((error) => console.error('Service Worker:', error));
+    });
+  }
+</script>
 </body>
 </html>
