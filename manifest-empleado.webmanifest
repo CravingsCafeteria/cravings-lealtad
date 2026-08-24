@@ -1,0 +1,23 @@
+{
+  "id": "/cravings-lealtad/empleado",
+  "name": "Cravings! Empleado",
+  "short_name": "Cravings",
+  "description": "Panel de empleados del programa de lealtad Cravings!",
+  "start_url": "./empleado.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F57E2F",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
